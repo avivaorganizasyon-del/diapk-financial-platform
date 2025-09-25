@@ -1,0 +1,31 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "npm run install:all && npm run build",
+    "watchPatterns": [
+      "src/**",
+      "frontend/src/**",
+      "package.json",
+      "frontend/package.json"
+    ]
+  },
+  "deploy": {
+    "startCommand": "npm start",
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 300,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10,
+    "numReplicas": 1,
+    "sleepApplication": false
+  },
+  "environments": {
+    "production": {
+      "variables": {
+        "NODE_ENV": "production",
+        "PORT": "${{RAILWAY_PUBLIC_DOMAIN_PORT}}",
+        "FRONTEND_URL": "https://${{RAILWAY_PUBLIC_DOMAIN}}"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: diapk-financial-platform
+    env: node
+    buildCommand: npm run install:all && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        value: diapk_super_secret_key_2024_financial_platform
+      - key: DB_DIALECT
+        value: sqlite
+      - key: DB_STORAGE
+        value: database.sqlite
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: diapk-financial-platform
+          property: host
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: diapk-financial-platform
+          property: host

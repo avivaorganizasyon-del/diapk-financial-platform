@@ -1,0 +1,8 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="24" fill="#1976d2"/>
+  <path d="M48 96C48 69.49 69.49 48 96 48C122.51 48 144 69.49 144 96C144 122.51 122.51 144 96 144C69.49 144 48 122.51 48 96Z" fill="white"/>
+  <path d="M80 80H112V88H88V104H108V112H80V80Z" fill="#1976d2"/>
+  <path d="M96 64C84.95 64 76 72.95 76 84H84C84 77.37 89.37 72 96 72C102.63 72 108 77.37 108 84C108 90.63 102.63 96 96 96H88V104H96C107.05 104 116 95.05 116 84C116 72.95 107.05 64 96 64Z" fill="#1976d2"/>
+  <circle cx="92" cy="116" r="4" fill="#1976d2"/>
+  <text x="96" y="160" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DiaPK</text>
+</svg>
