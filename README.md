@@ -1,174 +1,96 @@
-# 🏦 DIAPK Financial Platform
+# DIAPK Financial Platform
 
-Comprehensive Financial Platform with KYC, Deposits, IPO, Stock Quotes, Chat and Admin Panel
+Modern, güvenli ve kullanıcı dostu finansal platform. React + Node.js ile geliştirilmiş full-stack uygulama.
 
-## 🚀 Features
+## 🚀 Özellikler
 
-- **👤 User Management**: Registration, Login, KYC verification
-- **💰 Financial Operations**: Deposits, withdrawals, balance management
-- **📈 Stock Market**: Real-time stock quotes, BIST100 data
-- **🎯 IPO Management**: IPO subscriptions and management
-- **💬 Live Chat**: Real-time communication system
-- **👨‍💼 Admin Panel**: Comprehensive admin dashboard
-- **📱 Responsive Design**: Mobile-first approach
-- **🔒 Security**: JWT authentication, rate limiting
+- **💰 Mevduat Yönetimi**: Güvenli para yatırma ve çekme işlemleri
+- **📈 Hisse Senedi Takibi**: Gerçek zamanlı borsa verileri
+- **🎯 IPO Yatırımları**: Halka arz fırsatları
+- **👤 KYC Sistemi**: Kimlik doğrulama ve güvenlik
+- **💬 Canlı Destek**: Real-time chat sistemi
+- **📱 PWA Desteği**: Mobil uygulama deneyimi
+- **🔐 JWT Authentication**: Güvenli oturum yönetimi
 
-## 🛠️ Tech Stack
+## 🛠️ Teknolojiler
 
 ### Backend
-- **Node.js** with Express.js
-- **SQLite** database with Sequelize ORM
-- **JWT** authentication
-- **Socket.IO** for real-time features
-- **Cron jobs** for automated tasks
+- Node.js + Express.js
+- SQLite/MySQL Database
+- Sequelize ORM
+- Socket.io (Real-time)
+- JWT Authentication
+- Rate Limiting & Security
 
 ### Frontend
-- **React** with TypeScript
-- **Vite** build tool
-- **Material-UI** components
-- **Redux Toolkit** state management
-- **PWA** support
+- React 18 + TypeScript
+- Material-UI (MUI)
+- Redux Toolkit
+- Vite Build Tool
+- PWA Support
 
-## 📦 Installation
+## 🚀 Railway Deployment
 
-### Prerequisites
-- Node.js >= 20.0.0
-- npm >= 10.0.0
+Bu proje Railway.app için optimize edilmiştir.
 
-### Quick Start
+### Hızlı Deployment
+1. Bu repository'yi fork edin
+2. Railway hesabınızı GitHub ile bağlayın
+3. Yeni proje oluşturun ve bu repository'yi seçin
+4. Environment variables ekleyin (aşağıda detaylar)
+5. Deploy edin!
 
-1. **Clone the repository**
+### Gerekli Environment Variables
 ```bash
-git clone <repository-url>
-cd diapk-financial-platform
+JWT_SECRET=your-super-secure-jwt-secret-key-here
 ```
 
-2. **Install dependencies**
+### Opsiyonel API Keys
 ```bash
+STOCK_API_KEY=your-stock-api-key
+CURRENCY_API_KEY=your-currency-api-key
+VITE_NEWS_API_KEY=your-news-api-key
+VITE_MARKETAUX_API_KEY=your-marketaux-api-key
+```
+
+## 📋 Özellikler
+
+- ✅ Otomatik database migration
+- ✅ SQLite (harici DB gerekmez)
+- ✅ Health check endpoint (`/health`)
+- ✅ Production-ready konfigürasyon
+- ✅ CORS ve güvenlik ayarları
+- ✅ Rate limiting
+- ✅ File upload desteği
+
+## 🔧 Local Development
+
+```bash
+# Dependencies yükle
 npm run install:all
-```
 
-3. **Build frontend**
-```bash
+# Development server başlat
+npm run dev
+
+# Production build
 npm run build
-```
 
-4. **Start the application**
-```bash
+# Production server
 npm start
 ```
 
-The application will be available at `http://localhost:3000`
+## 📚 API Documentation
 
-## 🚀 Deployment
+Deployment sonrası `/api-docs` endpoint'inden API dokümantasyonuna erişebilirsiniz.
 
-### Render.com (Recommended)
-1. Upload project to Render.com
-2. Render will automatically detect `render.yaml`
-3. Deploy with one click
+## 🏥 Health Check
 
-### Railway
-1. Connect your GitHub repository
-2. Railway will use `railway.json` configuration
-3. Deploy automatically
-
-### Heroku
-```bash
-heroku create your-app-name
-git push heroku main
-```
-
-## 📁 Project Structure
-
-```
-├── src/                    # Backend source code
-│   ├── controllers/        # Route controllers
-│   ├── models/            # Database models
-│   ├── routes/            # API routes
-│   ├── middleware/        # Custom middleware
-│   ├── jobs/              # Cron jobs
-│   └── server.js          # Main server file
-├── frontend/              # Frontend React application
-│   ├── src/               # Frontend source code
-│   ├── public/            # Static assets
-│   └── dist/              # Built frontend
-├── migrations/            # Database migrations
-├── seeders/              # Database seeders
-├── render.yaml           # Render.com configuration
-├── railway.json          # Railway configuration
-└── Procfile              # Heroku configuration
-```
-
-## 🔧 Environment Variables
-
-```env
-NODE_ENV=production
-PORT=3000
-JWT_SECRET=your-secret-key
-DB_DIALECT=sqlite
-DB_STORAGE=database.sqlite
-CORS_ORIGIN=your-domain
-FRONTEND_URL=your-domain
-```
-
-## 📊 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
-
-### Stocks
-- `GET /api/stocks` - Get all stocks
-- `GET /api/stocks/:id` - Get stock details
-- `GET /api/stocks/:id/quotes` - Get stock quotes
-
-### IPO
-- `GET /api/ipos` - Get all IPOs
-- `POST /api/ipos/:id/subscribe` - Subscribe to IPO
-
-### Admin
-- `GET /api/admin/users` - Get all users
-- `GET /api/admin/stats` - Get platform statistics
-
-## 🔒 Security Features
-
-- JWT token authentication
-- Rate limiting
-- CORS protection
-- Helmet security headers
-- Input validation
-- SQL injection protection
-
-## 📱 PWA Features
-
-- Offline support
-- Push notifications
-- App-like experience
-- Service worker caching
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+`/health` endpoint'i uygulama durumunu kontrol etmek için kullanılır.
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For support, email support@diapk.com or join our Slack channel.
-
-## 🚀 Live Demo
-
-- **Production**: [Your deployed URL]
-- **Admin Panel**: [Your deployed URL]/admin
-- **API Documentation**: [Your deployed URL]/api
+MIT License - Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
 ---
 
-Made with ❤️ by DIAPK Team
+**Railway.app ile hızlı ve kolay deployment! 🚀**
