@@ -59,7 +59,7 @@ api.interceptors.response.use(
         message: 'Bu işlem için yetkiniz bulunmamaktadır.',
         severity: 'error'
       }));
-    } else if (response?.status >= 500) {
+    } else if (response && response.status >= 500) {
       store.dispatch(showSnackbar({
         message: 'Sunucu hatası. Lütfen daha sonra tekrar deneyin.',
         severity: 'error'
@@ -97,6 +97,8 @@ export const authAPI = {
     currentPassword: string;
     newPassword: string;
   }) => api.put('/auth/change-password', data),
+  
+  deleteAccount: () => api.delete('/auth/account'),
 };
 
 export const stockAPI = {
