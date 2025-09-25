@@ -8,7 +8,6 @@ import {
   TextField,
   Card,
   CardContent,
-  Grid,
   Alert,
   CircularProgress,
   Dialog,
@@ -29,6 +28,7 @@ import {
   MenuItem,
   InputAdornment,
 } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import {
   AccountBalance,
   Receipt,

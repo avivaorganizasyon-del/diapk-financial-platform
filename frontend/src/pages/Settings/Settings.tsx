@@ -4,7 +4,6 @@ import {
   Paper,
   Typography,
   Box,
-  Grid,
   FormControl,
   FormLabel,
   RadioGroup,
@@ -27,6 +26,7 @@ import {
   DialogContentText,
   DialogActions,
 } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import {
   Palette,
   Language,

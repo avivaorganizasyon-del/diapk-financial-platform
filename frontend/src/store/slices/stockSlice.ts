@@ -39,6 +39,7 @@ interface StockState {
     sector: string;
     sortBy: string;
     sortOrder: 'asc' | 'desc';
+    search: string;
   };
   pagination: {
     page: number;
@@ -60,6 +61,7 @@ const initialState: StockState = {
     sector: '',
     sortBy: 'symbol',
     sortOrder: 'asc',
+    search: '',
   },
   pagination: {
     page: 1,
@@ -79,6 +81,7 @@ export const fetchStocks = createAsyncThunk(
     status?: string;
     sortBy?: string;
     sortOrder?: 'asc' | 'desc';
+    search?: string;
   } = {}, { rejectWithValue }) => {
     try {
       const response = await axios.get('/api/stocks', { params });

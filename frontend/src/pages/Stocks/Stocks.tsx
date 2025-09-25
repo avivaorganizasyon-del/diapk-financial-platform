@@ -8,7 +8,6 @@ import {
   InputAdornment,
   IconButton,
   Chip,
-  Grid,
   Card,
   CardContent,
   Button,
@@ -24,6 +23,7 @@ import {
   useTheme,
   useMediaQuery
 } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import {
   Search,
   Refresh,
@@ -39,6 +39,15 @@ import {
 } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
+
+interface Favorite {
+  id: number;
+  userId: number;
+  symbol: string;
+  type: 'stock' | 'crypto' | 'forex';
+  createdAt: string;
+  updatedAt: string;
+}
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -97,7 +106,7 @@ const Stocks: React.FC = () => {
   const balanceLoading = useSelector(selectBalanceLoading);
   const [tabValue, setTabValue] = useState(0);
   const [activeStocks, setActiveStocks] = useState([]);
-  const [favoriteStocksList, setFavoriteStocksList] = useState([]);
+  const [favoriteStocksList, setFavoriteStocksList] = useState<Favorite[]>([]);
   const [myPortfolio, setMyPortfolio] = useState([]);
 
 
@@ -285,7 +294,7 @@ const Stocks: React.FC = () => {
       headerName: t('stocks.name'),
       width: isMobile ? 150 : 250,
       flex: isMobile ? 0 : 1,
-      hide: isSmallMobile,
+      hideable: isSmallMobile,
       renderCell: (params: GridRenderCellParams) => (
         <Typography variant={isMobile ? "body2" : "body1"} noWrap>
           {params.value}
@@ -313,7 +322,7 @@ const Stocks: React.FC = () => {
       field: 'volume',
       headerName: t('stocks.volume'),
       width: isMobile ? 80 : 120,
-      hide: isSmallMobile,
+      hideable: isSmallMobile,
       renderCell: (params: GridRenderCellParams) => {
         const volume = params.value;
         const formattedVolume = (volume === undefined || volume === null || isNaN(volume)) 
@@ -330,7 +339,7 @@ const Stocks: React.FC = () => {
       field: 'exchange',
       headerName: t('stocks.exchange'),
       width: isMobile ? 70 : 100,
-      hide: isSmallMobile,
+      hideable: isSmallMobile,
       renderCell: (params: GridRenderCellParams) => (
         <Chip label={params.value} size="small" variant="outlined" />
       ),
