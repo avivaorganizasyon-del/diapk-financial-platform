@@ -37,10 +37,18 @@ export default defineConfig({
     })
   ],
   server: {
-    port: 3001,
+    host: '0.0.0.0',
+    port: 5000,
+    allowedHosts: ['fae2fd3d-855b-4721-8c0c-06236966b041-00-1juw6stv4pb6.sisko.replit.dev', 'localhost'],
+    origin: 'https://fae2fd3d-855b-4721-8c0c-06236966b041-00-1juw6stv4pb6.sisko.replit.dev',
+    hmr: {
+      host: 'fae2fd3d-855b-4721-8c0c-06236966b041-00-1juw6stv4pb6.sisko.replit.dev',
+      protocol: 'wss',
+      clientPort: 443
+    },
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3001',
         changeOrigin: true
       }
     }
@@ -50,6 +58,11 @@ export default defineConfig({
     sourcemap: false, // Production'da sourcemap'i kapatıyoruz
     minify: 'terser',
     rollupOptions: {
+      onwarn(warning, warn) {
+        // Suppress eval warnings
+        if (warning.code === 'EVAL') return;
+        warn(warning);
+      },
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
