@@ -214,7 +214,7 @@ const stockSlice = createSlice({
       })
       // Remove from Favorites
       .addCase(removeFromFavorites.fulfilled, (state, action) => {
-        state.favorites = state.favorites.filter(fav => fav.id !== action.payload);
+        state.favorites = state.favorites.filter(fav => fav.id !== Number(action.payload));
       });
   },
 });
